@@ -1,0 +1,71 @@
+{
+  "users": {
+    "demo_user": {
+      "password_hash": "$argon2id$v=19$m=65536,t=3,p=4$AEqeJKp0F/NqhrbpZPG+3w$mwzRadxa776NI+/OjoeEuj7vNAg4IgRhHPjrWAbkp2I",
+      "created_at": "2025-12-09T19:57:31Z",
+      "last_login": null,
+      "failed_attempts": 0,
+      "locked_until": null
+    },
+    "Emily001": {
+      "password_hash": "$argon2id$v=19$m=65536,t=3,p=4$XEC8p39HsPEmR76icSEX9w$5ofXUT0v9dU26opMQ4RigNNX9q5dbfiUgPoAsyICgSY",
+      "created_at": "2025-12-09T19:57:31Z",
+      "last_login": null,
+      "failed_attempts": 0,
+      "locked_until": null
+    },
+    "Admin": {
+      "password_hash": "$argon2id$v=19$m=65536,t=3,p=4$L6nLb31hhT6kKZX+eoTGLw$fYFSDRZJxTzJqjlp3VQmM7Uv9Skb8WL4WDSnVM1nR3c",
+      "created_at": "2025-12-09T19:57:31Z",
+      "last_login": null,
+      "failed_attempts": 0,
+      "locked_until": null
+    },
+    "TestUser": {
+      "password_hash": "$argon2id$v=19$m=65536,t=3,p=4$AhBlZNQ1wR5we9l9jPnP9w$ZzI4+qBZGiA4PghUpa0o6mHisXYNn6ZhHPS9AGXhEog",
+      "created_at": "2025-12-09T19:57:31Z",
+      "last_login": null,
+      "failed_attempts": 0,
+      "locked_until": null
+    },
+    "Example2FA": {
+      "password_hash": "$argon2id$v=19$m=65536,t=3,p=4$onE4Utny1P+WaGow+KbsRw$1WR1YoZzEccWy9Fmo/BTcSgyp0SFlS5YKsc3bpUffC8",
+      "created_at": "2025-12-09T19:57:31Z",
+      "last_login": null,
+      "failed_attempts": 0,
+      "locked_until": null
+    }
+  },
+  "audit_log": [
+    {
+      "time": "2025-12-09T19:57:31Z",
+      "username": "demo_user",
+      "event": "REGISTER",
+      "details": "New account created."
+    },
+    {
+      "time": "2025-12-09T19:57:31Z",
+      "username": "Emily001",
+      "event": "REGISTER",
+      "details": "Account added manually to database."
+    },
+    {
+      "time": "2025-12-09T19:57:31Z",
+      "username": "Admin",
+      "event": "REGISTER",
+      "details": "Secure administrative account created."
+    },
+    {
+      "time": "2025-12-09T19:57:31Z",
+      "username": "TestUser",
+      "event": "REGISTER",
+      "details": "Standard test user account created."
+    },
+    {
+      "time": "2025-12-09T19:57:31Z",
+      "username": "Example2FA",
+      "event": "REGISTER",
+      "details": "Account intended for multi-factor demonstration."
+    }
+  ]
+}

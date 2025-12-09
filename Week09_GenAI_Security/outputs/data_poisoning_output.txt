@@ -1,0 +1,7 @@
+=== Baseline Response ===
+Error calling Ollama: Failed to connect to Ollama. Please check that Ollama is downloaded, running and accessible. https://ollama.com/download
+Hint: Ensure the Ollama daemon/CLI is installed and running. See https://ollama.com/download for installation instructions.
+=== Introducing Poisoned Information ===
+=== Post-Poison Response ===
+Error calling Ollama: Failed to connect to Ollama. Please check that Ollama is downloaded, running and accessible. https://ollama.com/download
+Hint: Ensure the Ollama daemon/CLI is installed and running. See https://ollama.com/download for installation instructions.

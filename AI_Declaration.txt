@@ -1,0 +1,5 @@
+AI Declaration
+
+Some written explanations and parts of the documentation were supported by generative AI to improve clarity, grammar and structure. Additionally, AI assistance was occasionally used to review the code for style consistency and to help identify minor issues such as logic mistakes or formatting improvements.
+
+All program design decisions, final code implementation, testing, execution, and security reasoning were completed independently by myself. AI tools were not used to generate complete solutions, security tools, or final implementations.

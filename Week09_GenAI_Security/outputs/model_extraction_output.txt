@@ -1,0 +1,13 @@
+=== Model Extraction Pattern Test ===
+
+Attempt 1
+Error calling Ollama: Failed to connect to Ollama. Please check that Ollama is downloaded, running and accessible. https://ollama.com/download
+Hint: Ensure the Ollama daemon/CLI is installed and running. See https://ollama.com/download for installation instructions.
+
+Attempt 2
+Error calling Ollama: Failed to connect to Ollama. Please check that Ollama is downloaded, running and accessible. https://ollama.com/download
+Hint: Ensure the Ollama daemon/CLI is installed and running. See https://ollama.com/download for installation instructions.
+
+Attempt 3
+Error calling Ollama: Failed to connect to Ollama. Please check that Ollama is downloaded, running and accessible. https://ollama.com/download
+Hint: Ensure the Ollama daemon/CLI is installed and running. See https://ollama.com/download for installation instructions.
