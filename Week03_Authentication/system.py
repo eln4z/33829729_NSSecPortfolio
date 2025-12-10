@@ -1,6 +1,6 @@
 import bcrypt, hashlib
-from auth.password_strength import password_strength
-from auth.twofactor import generate_2fa_secret
+from password_strength import password_strength
+from twofactor import generate_2fa_secret
 import pyotp
 
 class AuthSystem:

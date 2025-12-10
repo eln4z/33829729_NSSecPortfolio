@@ -11,19 +11,19 @@ PORT = 65432
 with open("public_key.pem", "rb") as f:
     public_key = serialization.load_pem_public_key(f.read())
 
-# Message to send (change this or prompt for input)
+# Message to send
 message = b"Hello from the secure sender! This is confidential."
 
-# 1) Generate random AES key and IV
-aes_key = os.urandom(32)  # AES-256
+# Generate random AES key and IV
+aes_key = os.urandom(32)
 iv = os.urandom(16)
 
-# 2) Encrypt message with AES (CFB mode)
+#  Encrypt message
 cipher = Cipher(algorithms.AES(aes_key), modes.CFB(iv))
 encryptor = cipher.encryptor()
 ciphertext = encryptor.update(message) + encryptor.finalize()
 
-# 3) Encrypt AES key with RSA (recipient's public key)
+# Encrypt AES key with RSA
 encrypted_key = public_key.encrypt(
     aes_key,
     padding.OAEP(
@@ -33,16 +33,16 @@ encrypted_key = public_key.encrypt(
     ),
 )
 
-# 4) Package as JSON (Base64-encoded fields)
+# Package as JSON
 package = json.dumps({
     "encrypted_key": base64.b64encode(encrypted_key).decode("utf-8"),
     "iv": base64.b64encode(iv).decode("utf-8"),
     "ciphertext": base64.b64encode(ciphertext).decode("utf-8"),
 })
 
-# 5) Send via socket
+# Send via socket
 with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
     s.connect((HOST, PORT))
     s.sendall(package.encode("utf-8"))
 
-print("✅ Encrypted message sent!")
+print("Encrypted message sent!")

@@ -3,6 +3,7 @@ import os
 import glob
 import webbrowser
 from pathlib import Path
+from typing import Optional
 
 # ⚠️ Only use LEGAL training targets like Google Gruyere, as in the workshop. :contentReference[oaicite:0]{index=0}
 TARGET_URL = "https://google-gruyere.appspot.com/123456/"   # replace with *your* instance URL if you have one
@@ -30,7 +31,7 @@ def run_wapiti_scan(target: str, out_dir: str):
         print("[-] Wapiti exited with an error code:", e.returncode)
 
 
-def find_latest_report(out_dir: str) -> Path | None:
+def find_latest_report(out_dir: str) -> Optional[Path]:
     """
     Find the most recent HTML report inside the output directory.
     """
@@ -52,7 +53,7 @@ def open_report_in_browser(report_path: Path):
     Open the Wapiti HTML report in the default web browser.
     """
     print(f"[+] Opening report in browser: {report_path}")
-    webbrowser.open(report_path.as_uri())
+    webbrowser.open(report_path.resolve().as_uri())
 
 
 def main():

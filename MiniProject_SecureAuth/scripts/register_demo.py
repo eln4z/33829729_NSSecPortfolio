@@ -10,7 +10,7 @@ pwd = 'DemoPass!2345'
 builtins.input = lambda prompt='': username
 app.getpass = lambda prompt='': pwd
 
-# Register the user (will create auth_data.json)
+# Register the user
 db = app.load_db()
 if username in db.get('users', {}):
     print('User already exists in DB:', username)

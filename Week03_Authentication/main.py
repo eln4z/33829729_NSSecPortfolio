@@ -1,7 +1,7 @@
-from auth.password_strength import password_strength
-from auth.hashing import hash_demo
-from auth.brute_force import brute_force_demo
-from auth.system import AuthSystem
+from password_strength import password_strength
+from hashing import hash_demo
+from brute_force import brute_force_demo
+from system import AuthSystem
 import hashlib
 
 def main():

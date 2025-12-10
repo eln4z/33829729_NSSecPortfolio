@@ -1,4 +1,4 @@
-# receiver.py (safe JSON + Base64)
+# receiver.py
 import socket, json, base64
 from cryptography.hazmat.primitives import serialization, hashes
 from cryptography.hazmat.primitives.asymmetric import padding

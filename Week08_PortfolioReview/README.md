@@ -6,13 +6,13 @@ This week focuses on consolidating the practical work completed across the modul
 
 Table of contents
 
-- [Learning objectives](#learning-objectives)
-- [Conceptual context](#conceptual-context)
-- [Practical activities](#practical-activities)
-- [How to view / run the portfolio](#how-to-view--run-the-portfolio)
-- [Submission requirements](#submission-requirements)
-- [AI assistance](#ai-assistance)
-- [Reflection](#reflection)
+- [Learning objectives]
+- [Conceptual context]
+- [Practical activities]
+- [How to view / run the portfolio]
+- [Submission requirements]
+- [AI assistance]
+- [Reflection]
 
 ## Learning objectives
 

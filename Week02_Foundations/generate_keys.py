@@ -28,4 +28,4 @@ with open("public_key.pem", "wb") as f:
         )
     )
 
-print("✅ Keys saved: private_key.pem, public_key.pem")
+print("Keys saved: private_key.pem, public_key.pem")
