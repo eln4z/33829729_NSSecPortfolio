@@ -25,9 +25,7 @@ from typing import Dict, Any
 from argon2 import PasswordHasher, exceptions as argon2_exceptions
 
 
-# ----------------------------------------------------------------------
 # Configuration
-# ----------------------------------------------------------------------
 
 USERS_FILE = Path("auth_data.json")
 LOG_FILE = Path("audit_log.json")
@@ -38,12 +36,11 @@ DATA_FILE = USERS_FILE
 LOCKOUT_THRESHOLD = 5          # Number of failed attempts before lockout
 LOCKOUT_SECONDS = 300          # Lockout duration in seconds (5 minutes)
 
-ph = PasswordHasher()          # Uses Argon2id by default
+ph = PasswordHasher()      
 
 
-# ----------------------------------------------------------------------
 # Time utilities
-# ----------------------------------------------------------------------
+
 def now_utc() -> datetime:
     return datetime.now(timezone.utc)
 
@@ -55,9 +52,8 @@ def parse_iso(ts: str | None) -> datetime | None:
         return None
     return datetime.strptime(ts, "%Y-%m-%dT%H:%M:%SZ").replace(tzinfo=timezone.utc)
 
-# ----------------------------------------------------------------------
 # Storage helpers
-# ----------------------------------------------------------------------
+
 def load_users() -> Dict[str, Any]:
     """
     Load users from the USERS_FILE (auth_data.json).
@@ -81,9 +77,9 @@ def save_users(users: Dict[str, Any]) -> None:
     with USERS_FILE.open("w", encoding="utf-8") as f:
         json.dump(users, f, indent=2)
 
-# ----------------------------------------------------------------------
+
 # Password policy
-# ----------------------------------------------------------------------
+
 COMMON_PASSWORDS = {
     "password", "123456", "123456789", "test1", "password1", "qwerty", "abc123", "letmein", "monkey", "dragon"
 }
@@ -124,9 +120,9 @@ def password_is_acceptable(password: str) -> tuple[bool, str, float]:
         return False, f"Estimated entropy {entropy:.2f} bits is too low.", entropy
     return True, "Password accepted by policy.", entropy
 
-# ----------------------------------------------------------------------
+
 # Lockout handling
-# ----------------------------------------------------------------------
+
 def is_locked(user_rec: Dict[str, Any]) -> tuple[bool, int]:
     """
     Returns (locked?, seconds_remaining). Refreshes lockout if expired.
@@ -145,9 +141,8 @@ def is_locked(user_rec: Dict[str, Any]) -> tuple[bool, int]:
     remaining = int((locked_until - now).total_seconds())
     return True, max(remaining, 0)
 
-# ----------------------------------------------------------------------
+
 # Audit log helpers
-# ----------------------------------------------------------------------
 def append_log(username: str, event: str, details: str = "") -> None:
     if LOG_FILE.exists():
         with LOG_FILE.open("r", encoding="utf-8") as f:
@@ -169,9 +164,9 @@ def load_log() -> list[dict]:
     with LOG_FILE.open("r", encoding="utf-8") as f:
         return json.load(f)
 
-# ----------------------------------------------------------------------
+
 # Registration
-# ----------------------------------------------------------------------
+
 def register_user(users: Dict[str, Any]) -> None:
     username = input("Choose a username: ").strip()
     if not username:
@@ -203,9 +198,7 @@ def register_user(users: Dict[str, Any]) -> None:
     append_log(username, "REGISTER", "New account created.")
     print("Account created successfully.")
 
-# ----------------------------------------------------------------------
 # Login
-# ----------------------------------------------------------------------
 def login_user(users: Dict[str, Any]) -> None:
     username = input("Username: ").strip()
     if username not in users:
@@ -244,9 +237,8 @@ def login_user(users: Dict[str, Any]) -> None:
     save_users(users)
     print("Login successful. Access has been granted.")
 
-# ----------------------------------------------------------------------
 # Audit log viewing
-# ----------------------------------------------------------------------
+
 def view_audit_log() -> None:
     log = load_log()
     if not log:
@@ -260,9 +252,8 @@ def view_audit_log() -> None:
         )
     print("End of audit log.\n")
 
-# ----------------------------------------------------------------------
 # Main menu
-# ----------------------------------------------------------------------
+
 def main() -> None:
     print("Secure Authentication System (Mini Project)")
     users = load_users()
